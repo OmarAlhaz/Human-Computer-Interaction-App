@@ -30,7 +30,7 @@ An interactive desktop app built with **Python** and **Firebase**, enabling user
 
 | Home Panel | Weather Forecast | Wiki Search | Map Panel |
 |------------|------------------|-------------|-----------|
-| ![home](./App_screenshots/Home.png) | ![weather](./App_screenshots/Weather.png) | ![wiki](./App_screenshots/Search.png) | ![map](./App_screenshots/Map.png) |
+| ![home](./App_Screenshots/Home.png) | ![weather](./App_Screenshots/Weather.png) | ![wiki](./App_Screenshots/Search.png) | ![map](./App_Screenshots/Map.png) |
 
 
 ---

@@ -24,6 +24,34 @@ from PIL import Image
 from tkintermapview import TkinterMapView
 import wikipedia
 from googlesearch import search
+import os
+import json
+from firebase_admin import credentials, initialize_app
+from dotenv import load_dotenv
+
+load_dotenv()
+
+firebase_config = {
+    "type": os.getenv("FIREBASE_TYPE"),
+    "project_id": os.getenv("FIREBASE_PROJECT_ID"),
+    "private_key_id": os.getenv("FIREBASE_PRIVATE_KEY_ID"),
+    "private_key": os.getenv("FIREBASE_PRIVATE_KEY").replace("\\n", "\n"),
+    "client_email": os.getenv("FIREBASE_CLIENT_EMAIL"),
+    "client_id": os.getenv("FIREBASE_CLIENT_ID"),
+    "auth_uri": os.getenv("FIREBASE_AUTH_URI"),
+    "token_uri": os.getenv("FIREBASE_TOKEN_URI"),
+    "auth_provider_x509_cert_url": os.getenv("FIREBASE_AUTH_PROVIDER_CERT_URL"),
+    "client_x509_cert_url": os.getenv("FIREBASE_CLIENT_CERT_URL")
+}
+
+# Write to a temporary file
+with open("serviceAccountKey.json", "w") as f:
+    json.dump(firebase_config, f)
+
+# Initialize Firebase app
+cred = credentials.Certificate("serviceAccountKey.json")
+initialize_app(cred)
+
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):

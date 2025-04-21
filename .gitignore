@@ -6,7 +6,6 @@ __pycache__/
 
 # Environment
 .env
-.env.*
 *.sqlite3
 
 # macOS
